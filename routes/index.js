@@ -5,5 +5,12 @@ var projects = require('../projects.json');
  */
 
 exports.view = function(req, res){
-  	res.render('index', projects);
+	var nongrid = {'grid':false, 'projects':projects['projects']};
+  	res.render('index', nongrid);
+  	//res.render('index',gridProp);
 };
+
+exports.viewGrid = function(req, res){
+	var gridProp = {'grid':true, 'projects':projects['projects']};
+  	res.render('index', gridProp);
+  };
